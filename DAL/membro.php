@@ -17,14 +17,56 @@
                 $membro->setContato($linha['contato']);
                 $membro->setEndereco($linha['endereco']);
                 $listaMembro[] = $membro;
+            
+                return $listaMembro;
             }
-
-            return $listaMembro;
         }
 
-        public function SelectId(int $id){}
-        public function SelectNome(string $nome){}
-        public function SelectContato(string $contato){}
-        public function SelectEndereco(string $endereco){}
+        public function SelectID(int $id){ //recuperar uma linha só
+            $sql = "Select * from membro where id=?;";
+            $con = Conexao::conectar();
+            $query = $con->prepare($sql);
+            $query->execute(array($id));
+            $linha = $query->fetch(\PDO::FETCH_ASSOC);
+            $con = Conexao::desconectar();
+
+            $membro = new \MODEL\membro();
+            $membro->setID($linha['id']);
+            $membro->setNome($linha['nome']);
+            $membro->setContato($linha['contato']);
+            $membro->setEndereco($linha['endereco']);
+            
+            return $membro;
+        }
+
+        public function Insert(\MODEL\membro $membro){
+            $sql = "INSERT INTO membro (nome, contato, endereco)
+                    VALUES ('{$membro->getNome()}','{$membro->getContato()}','{$membro->getEndereco()}');";
+            $con = Conexao::conectar();
+            $result = $con->query($sql);
+            $con = Conexao::desconectar();
+
+            return $result;
+        }
+
+        public function Update(\MODEL\membro $membro){
+            $sql = "UPDATE membro SET nome=?, contato=?, endereco=? WHERE id=?;";
+            $con = Conexao::conectar();
+            $query = $con->prepare($sql);
+            $result = $query->execute(array($membro->getNome(),$membro->getContato(),$membro->getEndereco(),$membro->getID()));
+            $con = Conexao::desconectar();
+
+            return $result;
+        }
+
+        public function Delete(int $id){
+            $sql = "DELETE FROM membro WHERE id=?;";
+            $con = Conexao::conectar();
+            $query = $con->prepare($sql);
+            $result = $query->execute(array($id));
+            $con = Conexao::desconectar();
+
+            return $result;
+        }
     }
 ?>
