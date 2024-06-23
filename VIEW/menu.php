@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login'])){
+      header("location:/gestaophp/CONTROLLER/index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +19,7 @@
     
     <style>
         body {
-            background-image: url('books.jpg');
+            background-image: url('../IMG/books.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -24,24 +31,24 @@
 <body>
 <nav class="red darken-4 z-depth-0">
     <div class="nav-wrapper container">
-      <a href="#" class="brand-logo left">Cabeceira</a>
+      <a href="\gestaophp/VIEW/menu.php" class="brand-logo left">Cabeceira</a>
       <a href="#" data-target="menu-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       
-      <li><a href="Livros.html">Livros</a></li>
-      <li><a href="Membros.html">Membros</a></li>
-      <li><a href="Emprestimos.html">Emprestimos</a></li>
-      <li><a href="Logout.html">Logout</a></li>
+      <li><a href="/gestaophp/VIEW\MEMBRO/listarLivro.php">Livros</a></li>
+      <li><a href="/gestaophp/VIEW\MEMBRO/listarMembro.php">Membros</a></li>
+      <li><a href="/gestaophp/VIEW\MEMBRO/listarEmprestimo.php">Emprestimos</a></li>
+      <li><a href="">Logout</a></li>
       </ul>
 
     </div>
 </nav> 
 
 <ul id="menu-mobile" class="sidenav">
-<li><a href="Livros.html">Livros</a></li>
-      <li><a href="Membros.html">Membros</a></li>
-      <li><a href="Emprestimos.html">Emprestimos</a></li>
-      <li><a href="Logout.html">Logout</a></li>
+      <li><a href="listarLivro.php">Livros</a></li>
+      <li><a href="listarMembro.php">Membros</a></li>
+      <li><a href="listarEmprestimo.php">Emprestimos</a></li>
+      <li><a href="../CONTROLLER/logout.php">Logout</a></li>
 </ul>
 
 <!-- jQuery and Materialize JS -->
