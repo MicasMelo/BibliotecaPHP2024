@@ -4,10 +4,10 @@
     <link rel="icon" href="/gestaophp/IMG/ikon.png">
     <style>
         .red-darken-4-margin {
-            border: 5px solid #b71c1c; /* Cor correspondente a red darken-4 */
-            padding: 10px; /* Ajuste o padding conforme necessário */
-            margin: 10px; /* Ajuste a margem conforme necessário */
-            border-radius: 15px; /* Arredondamento das bordas */
+            border: 5px solid #b71c1c;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 15px;
         }
         .underline {
             text-decoration: underline;
