@@ -27,10 +27,10 @@
         public function setIDMembro(int $idMembro){
             $this->idMembro = $idMembro;}
 
-        public function getData_empresimo(){
+        public function getData_emprestimo(){
             return $this->data_empresimo;}
 
-        public function setData_empresimo(string $data_empresimo){
+        public function setData_emprestimo(string $data_empresimo){
             $this->data_empresimo = $data_empresimo;}
 
         public function getData_devolutiva(){
