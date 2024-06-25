@@ -15,6 +15,20 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative;
+    padding-bottom: 100px;
+  }
+  .footer{
+    background: #ffab62;
+    width: 100%;
+    height: 70px;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .button {
+    z-index: 1;
   }
 </style>
 <link rel="icon" href="/gestaophp/IMG/ikon.png">
@@ -36,7 +50,7 @@
       <li><a href="/gestaophp/VIEW/LIVRO/listarLivro.php">Livros</a></li>
       <li><a href="/gestaophp/VIEW/MEMBRO/listarMembro.php">Membros</a></li>
       <li><a href="/gestaophp/VIEW/EMPRESTIMO/listarEmpt.php">Emprestimos</a></li>
-      <li><a href="../CONTROLLER/logout.php">Logout</a></li>
+      <li><a href="/gestaophp/CONTROLLER/logout.php">Logout</a></li>
     </ul>
   </div>
 </nav> 
@@ -45,7 +59,7 @@
   <li><a href="/gestaophp/VIEW/LIVRO/listarLivro.php">Livros</a></li>
   <li><a href="/gestaophp/VIEW/MEMBRO/listarMembro.php">Membros</a></li>
   <li><a href="/gestaophp/VIEW/EMPRESTIMO/listarEmpt.php">Emprestimos</a></li>
-  <li><a href="../CONTROLLER/logout.php">Logout</a></li>
+  <li><a href="/gestaophp/CONTROLLER/logout.php">Logout</a></li>
 </ul>
 
 <!-- jQuery and Materialize JS -->
@@ -56,5 +70,6 @@
     var instances = M.Sidenav.init(elems);
     });
 </script>
+<div class="footer"><?php include_once 'C:\xampp\htdocs\gestaophp\CONTROLLER\footer.php' ?></div>
 </body>
 </html>
