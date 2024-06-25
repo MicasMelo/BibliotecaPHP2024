@@ -15,6 +15,9 @@
             margin: 10px;
             border-radius: 15px;
         }
+        .bold-heading {
+            font-weight: bold;
+        }
     </style>
     <meta charset="utf-8">
     <link rel="icon" href="../IMG/ikon.png">
@@ -22,8 +25,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
-
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -43,7 +44,7 @@
                 <img src="../VIEW/images/logo.png" alt="" height="80">
                 <div class="row login">
                     <div class="orange lighten-4 brown-text col s12 red-darken-4-margin">
-                        <h4>Faça seu login</h4>
+                        <h4 class="bold-heading">Faça seu login</h4>
                         <form method="POST" action="login.php" class="col s12">
                             <div class="row">
                                 <div class="input-field col m12 s12">
