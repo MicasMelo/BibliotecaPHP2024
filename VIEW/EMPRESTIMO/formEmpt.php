@@ -17,8 +17,12 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-    <!--<script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../JS/init.js"></script>
+    <?php include_once 'C:\xampp\htdocs\gestaophp\BLL\membro.php' ?>
+    <?php include_once 'C:\xampp\htdocs\gestaophp\BLL\livro.php' ?>
 
     <title>Fazer Empréstimo</title>
 </head>
@@ -31,12 +35,30 @@
         <div class="center row">
             <form action="insEmpt.php" method="POST" class="col s12 center row">
                 <div class="input-field col s7">
-                    <input id="idLivro" name="txtIdLivro" type="text" class="validate">
-                    <label for="idLivro">ID do Livro</label>
+                    <select name="selectIdLivro">
+                        <option value="" disabled selected>Selecione o livro</option>
+                        <?php
+                            $bllLivro = new BLL\livro();
+                            $listaLvr = $bllLivro->Select();
+                            foreach ($listaLvr as $livro){?>
+                                <option value="<?php echo $livro->getID();?>">
+                                    <?php echo $livro->getTitulo();?></option>
+                            <?php } ?>
+                    </select>
+                    <label>Livro</label>
                 </div>
                 <div class="input-field col s7">
-                    <input id="idMembro" name="txtIdMembro" type="text" class="validate">
-                    <label for="idMembro">ID da Pessoa Membro</label>
+                    <select name="selectIdMembro">
+                        <option value="" disabled selected>Selecione o membro</option>
+                        <?php
+                            $bllMembro = new BLL\membro();
+                            $listaMembro = $bllMembro->Select();
+                            foreach ($listaMembro as $membro){?>
+                                <option value="<?php echo $membro->getID();?>">
+                                    <?php echo $membro->getNome();?></option>
+                            <?php } ?>
+                    </select>
+                    <label>Pessoa</label>
                 </div>
                 <div class="input-field col s7">
                     <input placeholder="Data do sistema (Hoje)" id="dataEmprestimo" name="txtDataEmprestimo" type="date" class="validate">

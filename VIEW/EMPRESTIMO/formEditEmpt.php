@@ -44,22 +44,20 @@
         <div class="center row">
             <form action="editEmpt.php" method="POST" class="col s12 center row">
                 <div class="input-field col s7">
-                    <label for="id" class="black-text bold">ID: <?php echo $empt->getID() ?></label><br><br>
+                    <label for="id" class="black-text bold">ID: <?php echo $empt->getID() ?></label>
                     <input type="hidden" name="txtID" value="<?php echo $id;?>">
                 </div>
                 <div class="input-field col s7">
-                    <input id="idLivro" name="txtIdLivro" type="text"
-                        class="validate" value="<?php echo $empt->getIDLivro();?>">
-                    <label for="idLivro">ID Livro</label>
+                    <label for="idLivro" class="black-text bold">ID Livro: <?php echo $empt->getIDLivro() ?></label>
+                    <input type="hidden" name="txtIdLivro" value="<?php echo $empt->getIDLivro();?>">
                 </div>
                 <div class="input-field col s7">
-                    <input id="idMembro" name="txtIdMembro" type="text" 
-                        class="validate" value="<?php echo $empt->getIDMembro();?>">
-                    <label for="idMembro">ID Membro</label>
+                    <label for="idMembro" class="black-text bold">ID Membro: <?php echo $empt->getIDMembro() ?></label><br>
+                    <input type="hidden" name="txtIdMembro" value="<?php echo $empt->getIDMembro();?>">
                 </div>
                 <div class="input-field col s7">
-                    <label for="dataEmprestimo" class="black-text bold">Data do Empréstimo: 
-                        <br><?php echo $empt->getData_emprestimo() ?></label><br><br><br>
+                    <label for="dataEmprestimo" class="black-text bold">Data do Empréstimo <br>
+                        <?php echo date('d/m/Y', strtotime($empt->getData_emprestimo())); ?></label><br><br><br>
                     <input type="hidden" name="txtDataEmprestimo" value="<?php echo $empt->getData_emprestimo();?>">
                 </div>
                 <div class="input-field col s7">

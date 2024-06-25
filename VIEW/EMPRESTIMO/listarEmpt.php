@@ -48,7 +48,7 @@
                 <th>Data do Empréstimo</th>
                 <th>Devolução</th>
                 <th>Operações</th>
-                <th><a class="btn-floating btn-large waves-effect waves-light red darken-4">
+                <th><a class="btn-floating btn-medium waves-effect waves-light red darken-4">
                     <i class="material-icons" onclick="javascript:location.href='formEmpt.php'">add</i></a></th>
                 </tr>
 
@@ -57,8 +57,8 @@
                 <td><?php echo $empt->getId();?></td>
                 <td><?php echo $empt->getIDLivro();?></td>
                 <td><?php echo $empt->getIDMembro();?></td>
-                <td><?php echo $empt->getData_emprestimo();?></td>
-                <td><?php echo $empt->getData_devolutiva();?></td>
+                <td><?php echo date('d/m/Y', strtotime($empt->getData_emprestimo())); ?></td>
+                <td><?php echo date('d/m/Y', strtotime($empt->getData_devolutiva())); ?></td>
                 <td><a class="btn-floating btn-small waves-effect waves-light red darken-4"
                         onclick="javascript:location.href='formEditEmpt.php?id=' + '<?php echo $empt->getID();?>'">
                         <i class="material-icons">edit</i></a>

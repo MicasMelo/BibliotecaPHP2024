@@ -48,15 +48,15 @@
 <?php include_once '../menu.php'?>
     <br><br>    
     <div class="container orange lighten-4 brown-text col s12 red-darken-4-margin">
-        <div class="center"><h1 class="underline">Mais Informações do Empréstimo</h1></div>
+        <div class="center"><h2 class="underline">Mais Informações do Empréstimo</h2></div>
         <div class="row">
             <div class="input-field col s7">
                 <h5>ID: <?php echo $empt->getID() ?></h5>
                 <input type="hidden" name="txtID" value="<?php echo $id;?>">
                 <h5>ID do Livro: <?php echo $empt->getIDLivro() ?></h5>
                 <h5>ID do Membro: <?php echo $empt->getIDMembro() ?></h5>
-                <h5>Data do Empréstimo: <?php echo $empt->getData_emprestimo() ?></h5>
-                <h5>Data para Devolução: <?php echo $empt->getData_devolutiva() ?></h5>
+                <h5>Data do Empréstimo: <?php echo date('d/m/Y', strtotime($empt->getData_emprestimo())); ?></h5>
+                <h5>Data para Devolução: <?php echo date('d/m/Y', strtotime($empt->getData_devolutiva())); ?></h5>
             </div>
             <div class="center brown-lighten-5 col s12">
                 <button class="btn red darken-4 waves-effect waves-light" type="button"
