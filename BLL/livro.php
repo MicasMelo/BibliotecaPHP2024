@@ -13,6 +13,11 @@
             return $dalLivro->SelectID($id);
         }
 
+	    public function SelectTitulo(string $titulo){
+            $dalLivro = new \DAL\livro();
+            return $dalLivro->SelectTitulo($titulo);
+        }
+
         public function Insert(\MODEL\livro $livro){
             $dalLivro = new \DAL\livro();
             return $dalLivro->Insert($livro);
