@@ -10,6 +10,7 @@
             $dados = $con->query($sql);
             $con = Conexao::desconectar();
 
+            $listaLivro = [];
             foreach ($dados as $linha){
                 $livro = new \MODEL\livro();
                 $livro->setID($linha['id']);
@@ -18,9 +19,8 @@
                 $livro->setGenero($linha['genero']);
                 $livro->setStatus($linha['status']);
                 $listaLivro[] = $livro;
-            
-                return $listaLivro;
             }
+            return $listaLivro;
         }
 
         public function SelectId(int $id){
@@ -39,6 +39,28 @@
             $livro->setStatus($linha['status']);
             
             return $livro;
+        }
+
+        public function SelectTitulo(string $titulo){
+            $sql = "Select * from livro where titulo like '%" . $titulo .  "%' order by titulo;";
+            
+            $con = Conexao::conectar();
+            $query = $con->prepare($sql);
+            $result = $con->query($sql);
+            $con = Conexao::desconectar();
+
+            $listaLivro = [];
+            foreach($result as $linha){
+                $livro = new \MODEL\livro();
+                $livro->setID($linha['id']);
+                $livro->setTitulo($linha['titulo']);
+                $livro->setAutor($linha['autor']);
+                $livro->setGenero($linha['genero']);
+                $livro->setStatus($linha['status']);
+
+                $listaLivro[] = $livro;
+            }
+            return $listaLivro;
         }
 
         public function Insert(\MODEL\livro $livro){
