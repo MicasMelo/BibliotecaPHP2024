@@ -47,7 +47,7 @@
                 <th>Contato</th>
                 <th>Endereço</th>
                 <th>Operações</th>
-                <th><a class="btn-floating btn-large waves-effect waves-light red darken-4">
+                <th><a class="btn-floating btn-medium waves-effect waves-light red darken-4">
                     <i class="material-icons" onclick="javascript:location.href='formMembro.php'">add</i></a></th>
                 </tr>
 

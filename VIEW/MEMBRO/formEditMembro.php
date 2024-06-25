@@ -29,8 +29,10 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-    <!--<script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+    <!-- Inclusão do jQuery-->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- Inclusão do Plugin jQuery Validation-->
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
 
     <title>Editar Membro</title>
 </head>
@@ -50,7 +52,7 @@
                     
                 </div>
                 <div class="input-field col s7">
-                    <input id="nome" name="txtNome" type="text"
+                    <input id="nome" name="txtNome" type="text" required minlength="2"
                         class="validate" value="<?php echo $membro->getNome();?>">
                     <label for="nome">Nome</label>
                 </div>

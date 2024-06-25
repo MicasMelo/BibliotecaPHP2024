@@ -20,9 +20,11 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-    <!--<script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
-
+    <!-- Inclusão do jQuery-->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- Inclusão do Plugin jQuery Validation-->
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    
     <title>Inserir Membro</title>
 </head>
 
@@ -32,9 +34,9 @@
 <div class="container orange lighten-4 brown-text col s12 red-darken-4-margin">
         <div class="center"><h1>Cadastrar Membro</h1></div>
         <div class="center row">
-            <form action="insMembro.php" method="POST" class="col s12 center row">
+            <form action="insMembro.php" method="POST" class="col s12 center row" id="membro">
                 <div class="input-field col s7">
-                    <input id="nome" name="txtNome" type="text" class="validate">
+                    <input id="nome" name="txtNome" type="text" class="validate" required minlength="2">
                     <label for="nome">Nome</label>
                 </div>
                 <div class="input-field col s7">
