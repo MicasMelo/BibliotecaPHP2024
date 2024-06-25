@@ -2,8 +2,14 @@
     include_once 'C:\xampp\htdocs\gestaophp\BLL\livro.php';
     use \BLL\livro;
 
-    $bllLivro = new \BLL\livro(); //!!!!!!!!!
-    $listaLivro = $bllLivro->Select(); 
+    if(isset($_GET['busca']))
+	    $busca = $_GET['busca'];
+    else $busca = null;
+
+    $bllLivro = new \BLL\livro();
+    if($busca == null)
+	    $listaLivro = $bllLivro->Select();
+    else  $listaLivro = $bllLivro->SelectTitulo($busca);
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +46,17 @@
     <div class="container orange lighten-4 brown-text col s12 red-darken-4-margin">
         <div class="center">
             <h1>Lista de Livros</h1>
+            <div class="row center-align">
+                <div class="col offset-s3 s10">
+                    <form action="../LIVRO/listarLivro.php" method="GET" id="buscaLivro" class="col s10">
+                        <div class="input-field col s8">
+                            <input type="text" placeholder="Livro desejado" class="form-control col s10" id="txtBusca" name="busca">
+                            <button class="btn-floating btn-medium waves-effect waves-light red darken-4" type="submit" name="action">
+                                <i class="material-icons">search</i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <table class="highlight">
                 <tr>
                 <th>ID</th>
@@ -48,7 +65,7 @@
                 <th>Gênero</th>
                 <th>Status</th>
                 <th>Operações</th>
-                <th><a class="btn-floating btn-large waves-effect waves-light red darken-4">
+                <th><a class="btn-floating btn-medium waves-effect waves-light red darken-4">
                     <i class="material-icons" onclick="javascript:location.href='formLivro.php'">add</i></a></th>
                 </tr>
 

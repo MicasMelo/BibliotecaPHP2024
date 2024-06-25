@@ -8,7 +8,7 @@
     $livro->setID($_POST['txtID']);
     $livro->setTitulo($_POST['txtTitulo']);
     $livro->setAutor($_POST['txtAutor']);
-    $livro->setGenero($_POST['txtGenero']);
+    $livro->setGenero($_POST['selectGnr']);
     $livro->setStatus($_POST['txtStatus']);
 
     $bllLivro = new \BLL\livro();

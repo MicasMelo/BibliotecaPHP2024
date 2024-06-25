@@ -48,7 +48,7 @@
 <?php include_once '../menu.php'?>
     <br><br>    
     <div class="container orange lighten-4 brown-text col s12 red-darken-4-margin">
-        <div class="center"><h1 class="underline">Mais Informações do Livro</h1></div>
+        <div class="center"><h2 class="underline">Mais Informações do Livro</h2></div>
         <div class="row">
             <div class="input-field col s7">
                 <h5>ID: <?php echo $livro->getID() ?></h5>
