@@ -18,6 +18,11 @@
         .bold-heading {
             font-weight: bold;
         }
+        .footer{
+            position: absolute;
+            bottom:0%;
+            width: 100%;
+        }
     </style>
     <meta charset="utf-8">
     <link rel="icon" href="../IMG/ikon.png">
@@ -69,6 +74,6 @@
             </div>
         </div>
     </div>
-    <?php include_once 'footer.php' ?>
+    <div class="footer"><?php include_once 'footer.php' ?></div>
 </body>
 </html>
