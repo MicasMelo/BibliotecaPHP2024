@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/06/2024 às 07:53
+-- Tempo de geração: 25/06/2024 às 22:40
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -54,6 +54,13 @@ CREATE TABLE `emprestimo` (
   `data_devolutiva` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `emprestimo`
+--
+
+INSERT INTO `emprestimo` (`id`, `idLivro`, `idMembro`, `data_emprestimo`, `data_devolutiva`) VALUES
+(5, 4, 8, '2024-06-25', '2024-07-02');
+
 -- --------------------------------------------------------
 
 --
@@ -90,6 +97,17 @@ CREATE TABLE `livro` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `livro`
+--
+
+INSERT INTO `livro` (`id`, `titulo`, `autor`, `genero`, `status`) VALUES
+(1, 'As Crônicas de Nárnia', 'C. S. Lewis', 3, 0),
+(2, 'A Menina Que Roubava Livros', 'Markus Zusak', 5, 0),
+(3, '1984', 'George Orwell', 5, 0),
+(4, 'Coração de Tinta', 'Cornelia Funke', 3, 1),
+(5, 'Orgulho e Preconceito', 'Jane Austen', 4, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -99,9 +117,37 @@ CREATE TABLE `livro` (
 CREATE TABLE `membro` (
   `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `contato` varchar(11) NOT NULL,
+  `contato` varchar(14) NOT NULL,
   `endereco` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `membro`
+--
+
+INSERT INTO `membro` (`id`, `nome`, `contato`, `endereco`) VALUES
+(8, 'Isabella', 'isa@gmail.com', 'Rua Jabuticabeira, 40'),
+(9, 'Daniela', '18999666265', 'Rua das Flores, 48');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(10) NOT NULL,
+  `senha` varchar(32) NOT NULL COMMENT 'Criptografia',
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `usuario`, `senha`, `email`) VALUES
+(1, 'Micaella', '202cb962ac59075b964b07152d234b70', 'micaella.smelo@hotmail.com');
 
 --
 -- Índices para tabelas despejadas
@@ -142,6 +188,12 @@ ALTER TABLE `membro`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -155,7 +207,7 @@ ALTER TABLE `define_status`
 -- AUTO_INCREMENT de tabela `emprestimo`
 --
 ALTER TABLE `emprestimo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `genero`
@@ -167,13 +219,19 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `membro`
 --
 ALTER TABLE `membro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
